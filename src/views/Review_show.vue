@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div v-if="isLoading" class="loading">Loading...</div>
+    <div v-if="isLoading" class="loading">กำลังโหลดโปรดรอสักครู่...</div>
     <div v-else class="grid">
       <div class="card" v-for="review in sortedReviews" :key="review.index">
         <div class="card-content">

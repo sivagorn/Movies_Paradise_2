@@ -8,7 +8,7 @@
         placeholder="ค้นหา..."
       />
 
-      <div v-if="loading" class="loader">Loading...</div>
+      <div v-if="loading" class="loader">กำลังโหลดโปรดรอสักครู่...</div>
       <div v-else class="movie-grid">
         <div 
           v-for="movie in filteredMovies" 
@@ -58,21 +58,18 @@ const filteredMovies = computed(() => {
 });
 
 onMounted(() => {
-  const cachedMovies = localStorage.getItem('movies');
-  if (cachedMovies) {
-    state.movies = JSON.parse(cachedMovies);
-    loading.value = false; 
-  } else {
-    const url = 'https://script.googleusercontent.com/macros/echo?user_content_key=6Zaipk-Qwe6VZ7ZqU8w2ZU90rICEwPtRs_EN3rbBjYdiOdHts-WyF0FLutmgMvKXLfk05TWB6dwWOc15I_EyID6t_lap3DAgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnL8u_AcB_1UHpYPCdf8vF9NY5MH5fDAIIq05qmQpVHYvIVZediGCqp9VPBpAUZwcVLrWvMx9lReKudZEoNYGr_Nl257qV3UnLQ&lib=MlS1jc-5j_78AMWoObAbgVkPwlNntp4vT';
-    axios.get(url)
-      .then((response) => {
-        state.movies = response.data; 
-        localStorage.setItem('movies', JSON.stringify(state.movies));
-      })
-      .finally(() => {
-        loading.value = false; 
-      });
-  }
+  const url = 'https://script.googleusercontent.com/macros/echo?user_content_key=6Zaipk-Qwe6VZ7ZqU8w2ZU90rICEwPtRs_EN3rbBjYdiOdHts-WyF0FLutmgMvKXLfk05TWB6dwWOc15I_EyID6t_lap3DAgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnL8u_AcB_1UHpYPCdf8vF9NY5MH5fDAIIq05qmQpVHYvIVZediGCqp9VPBpAUZwcVLrWvMx9lReKudZEoNYGr_Nl257qV3UnLQ&lib=MlS1jc-5j_78AMWoObAbgVkPwlNntp4vT';
+  
+  localStorage.removeItem('movies'); 
+
+  axios.get(url)
+    .then((response) => {
+      state.movies = response.data; 
+      localStorage.setItem('movies', JSON.stringify(state.movies)); 
+    })
+    .finally(() => {
+      loading.value = false; 
+    });
 });
 </script>
 

@@ -12,21 +12,18 @@ const loading = ref(true);
 const error = ref(null); 
 
 const fetchMovies = async () => {
-  const cachedMovies = localStorage.getItem('movies');
+
+  localStorage.removeItem('movies');
   
-  if (cachedMovies) {
-    state.movies = JSON.parse(cachedMovies);
-  } else {
-    const url = 'https://script.googleusercontent.com/macros/echo?user_content_key=6Zaipk-Qwe6VZ7ZqU8w2ZU90rICEwPtRs_EN3rbBjYdiOdHts-WyF0FLutmgMvKXLfk05TWB6dwWOc15I_EyID6t_lap3DAgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnL8u_AcB_1UHpYPCdf8vF9NY5MH5fDAIIq05qmQpVHYvIVZediGCqp9VPBpAUZwcVLrWvMx9lReKudZEoNYGr_Nl257qV3UnLQ&lib=MlS1jc-5j_78AMWoObAbgVkPwlNntp4vT';
+  const url = 'https://script.googleusercontent.com/macros/echo?user_content_key=6Zaipk-Qwe6VZ7ZqU8w2ZU90rICEwPtRs_EN3rbBjYdiOdHts-WyF0FLutmgMvKXLfk05TWB6dwWOc15I_EyID6t_lap3DAgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnL8u_AcB_1UHpYPCdf8vF9NY5MH5fDAIIq05qmQpVHYvIVZediGCqp9VPBpAUZwcVLrWvMx9lReKudZEoNYGr_Nl257qV3UnLQ&lib=MlS1jc-5j_78AMWoObAbgVkPwlNntp4vT';
     
-    try {
-      const response = await axios.get(url);
-      state.movies = response.data;
-      localStorage.setItem('movies', JSON.stringify(state.movies)); 
-    } catch (err) {
-      error.value = 'Error fetching movies'; 
-      console.error('Error fetching movies:', err);
-    }
+  try {
+    const response = await axios.get(url);
+    state.movies = response.data;
+    localStorage.setItem('movies', JSON.stringify(state.movies)); 
+  } catch (err) {
+    error.value = 'Error fetching movies'; 
+    console.error('Error fetching movies:', err);
   }
 
   const movieId = parseInt(route.params.index); 
@@ -45,7 +42,7 @@ const getYoutubeId = (url) => {
 
 <template>
   <AppLayout>
-    <div v-if="loading" class="loading">Loading...</div>
+    <div v-if="loading" class="loading">กำลังโหลดโปรดรอสักครู่...</div>
     <div v-else-if="error" class="error">{{ error }}</div>
     <div v-else-if="state.movie" class="movie-card-container">
       <img :src="state.movie.banner" alt="Banner" class="banner-image">
@@ -154,7 +151,6 @@ const getYoutubeId = (url) => {
   height: 100%;
 }
 
-
 @media (max-width: 767px) {
   .card-content {
     font-size: 10px; 
@@ -201,4 +197,3 @@ const getYoutubeId = (url) => {
 }
 
 </style>
-

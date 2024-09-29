@@ -78,7 +78,6 @@ nav {
   margin-right: 0; 
 }
 
-/* CSS สำหรับปุ่ม */
 .back-button {
   font-family: 'Itim', cursive; 
   font-size: 15px; 
