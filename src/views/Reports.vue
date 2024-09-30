@@ -33,13 +33,13 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
+  height: 820px; 
   margin: 0; 
 }
 
 iframe {
   width: 100%; 
-  height: 910px; 
+  height: 750px; 
   border: none; 
   overflow: hidden; 
 }
