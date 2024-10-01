@@ -12,7 +12,6 @@ const loading = ref(true);
 const error = ref(null); 
 
 const fetchMovies = async () => {
-
   localStorage.removeItem('movies');
   
   const url = 'https://script.googleusercontent.com/macros/echo?user_content_key=6Zaipk-Qwe6VZ7ZqU8w2ZU90rICEwPtRs_EN3rbBjYdiOdHts-WyF0FLutmgMvKXLfk05TWB6dwWOc15I_EyID6t_lap3DAgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnL8u_AcB_1UHpYPCdf8vF9NY5MH5fDAIIq05qmQpVHYvIVZediGCqp9VPBpAUZwcVLrWvMx9lReKudZEoNYGr_Nl257qV3UnLQ&lib=MlS1jc-5j_78AMWoObAbgVkPwlNntp4vT';
@@ -31,7 +30,25 @@ const fetchMovies = async () => {
   loading.value = false; 
 };
 
-onMounted(fetchMovies);
+
+onMounted(async () => {
+  await fetchMovies();  
+
+  
+  const visitCountUrl = 'https://script.google.com/macros/s/AKfycbyHm_zDlqpaWx-zPLiWSMeZT7F9F2siUWHk3W6Ol9gSPG7QK6o_BKje1Rk5Q6xhq8aUxQ/exec';  
+  const currentUrl = window.location.href;  
+
+  try {
+    await axios.post(visitCountUrl, new URLSearchParams({ 
+      url: currentUrl,
+      title: state.movie.title,
+      poster: state.movie.poster
+    }));
+    console.log('Visit counted successfully for:', currentUrl);
+  } catch (err) {
+    console.error('Error counting visit:', err);
+  }
+});
 
 const getYoutubeId = (url) => {
   const regExp = /(?:youtube\.com\/(?:[^\/]+\/[^\/]+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/;
@@ -176,24 +193,11 @@ const getYoutubeId = (url) => {
     max-width: 900px; 
   }
   .card-content h2 {
-  font-size: 30px;
-  margin-bottom: 10px;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .card-content p {
+    font-size: 18px;
+  }
 }
-
-.card-content p {
-  font-size: 20px;
-}
-}
-
-.movie-card img {
-  max-width: 38%;
-  border-radius: 20px;
-}
-
-.card-content {
-  font-family: "Itim", sans-serif; 
-  margin-left: 20px;
-  margin-top: 30px;
-}
-
 </style>
