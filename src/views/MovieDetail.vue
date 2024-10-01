@@ -110,7 +110,7 @@ const getYoutubeId = (url) => {
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
 body, h2, p {
-  font-family: 'Itim', sans-serif; /* ใช้ฟอนต์ Itim */
+  font-family: 'Itim', sans-serif;
 }
 
 .loading {
@@ -158,7 +158,7 @@ body, h2, p {
 }
 
 .movie-card img {
-  border-radius: 15px; /* ทำให้ขอบโปสเตอร์มน */
+  border-radius: 15px;
 }
 
 .video-container {
