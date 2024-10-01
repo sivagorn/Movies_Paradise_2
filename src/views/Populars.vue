@@ -4,11 +4,12 @@
       <div v-if="loading" class="loader">กำลังโหลดโปรดรอสักครู่...</div>
       <div v-else class="movie-grid">
         <div 
-          v-for="popular in sortedPopulars" 
+          v-for="(popular, index) in sortedPopulars" 
           :key="popular.index" 
           class="card" 
           @click="goToDetail(popular.index)"
         >
+          <div v-if="index < 4" class="rank">เข้าชมสูงสุดอันดับ {{ index + 1 }}</div>
           <img 
             class="poster" 
             :src="popular.poster" 
@@ -80,11 +81,25 @@ onMounted(() => {
   box-sizing: border-box;
   background-color: #ffffff;
   transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  position: relative;
 }
 
 .card:hover {
   transform: translateY(-10px); 
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.rank {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  font-family: "Itim", sans-serif; /* ใช้ฟอนต์ "Itim" */
 }
 
 .poster {
