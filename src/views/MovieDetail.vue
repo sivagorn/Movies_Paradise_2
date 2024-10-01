@@ -66,6 +66,7 @@ const getYoutubeId = (url) => {
       <div class="movie-card">
         <img :src="state.movie.poster" alt="Poster">
         <div class="card-content">
+          <br>
           <h2>{{ state.movie.title }}</h2>
           <p>
             <b>ตัวอย่างภาพยนตร์</b><br>
@@ -79,7 +80,7 @@ const getYoutubeId = (url) => {
                 allowfullscreen>
               </iframe>
             </div>
-            <br><br>
+            <br>
             <b>เรื่องย่อ</b><br>
             {{ state.movie.synopsis }}
             <br><br>
@@ -107,6 +108,10 @@ const getYoutubeId = (url) => {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+body, h2, p {
+  font-family: 'Itim', sans-serif; /* ใช้ฟอนต์ Itim */
+}
 
 .loading {
   text-align: center;
@@ -150,6 +155,10 @@ const getYoutubeId = (url) => {
   max-width: 400px; 
   z-index: 2;
   margin: auto; 
+}
+
+.movie-card img {
+  border-radius: 15px; /* ทำให้ขอบโปสเตอร์มน */
 }
 
 .video-container {
@@ -201,3 +210,4 @@ const getYoutubeId = (url) => {
   }
 }
 </style>
+
