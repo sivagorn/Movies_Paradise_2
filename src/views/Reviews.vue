@@ -33,14 +33,14 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 1250px; 
+  height: 1400px; 
   margin: 0; 
   overflow: hidden; 
 }
 
 iframe {
   width: 100%; 
-  height: 1180px; 
+  height: 1350px; 
   border: none; 
   overflow: hidden; 
 }
