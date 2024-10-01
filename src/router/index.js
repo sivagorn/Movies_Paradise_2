@@ -5,7 +5,7 @@ import Reviews from '../views/Reviews.vue'
 import Review_show from '../views/Review_show.vue'
 import Reports from '../views/Reports.vue'
 import Welcome from '../views/Welcome.vue'
-
+import Populars from '../views/Populars.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -38,6 +38,11 @@ const router = createRouter({
       path: '/',
       name: 'Welcome',
       component: Welcome
+    },
+    {
+      path: '/populars',
+      name: 'Populars',
+      component: Populars
     }
 
   ]

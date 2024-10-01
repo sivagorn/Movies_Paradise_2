@@ -26,6 +26,9 @@ const goBack = () => {
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
+          <RouterLink class="btn btn-info other-button" to="/populars">ยอดนิยม 🌟</RouterLink>
+        </li>
+        <li class="nav-item">
           <RouterLink class="btn btn-success other-button" to="/reviews">รีวิวภาพยนตร์ 💡</RouterLink>
         </li>
         <li class="nav-item">
@@ -34,6 +37,7 @@ const goBack = () => {
         <li class="nav-item">
           <RouterLink class="btn btn-danger other-button" to="/reports">แจ้งปัญหา 📢</RouterLink>
         </li>
+        
       </ul>
     </div>
   </nav>
@@ -107,6 +111,9 @@ nav {
   border-color: red; 
 }
 
+.navbar-nav .btn-info {
+  border-color: rgb(29, 233, 219); 
+}
 
 .navbar-brand {
   display: flex; 
