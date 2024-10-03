@@ -35,7 +35,7 @@ const goBack = () => {
           <RouterLink class="btn btn-warning other-button" to="/review_show">รีวิวอื่นๆ 📽</RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="btn btn-danger other-button" to="/reports">แจ้งปัญหา 📢</RouterLink>
+          <RouterLink class="btn btn-danger other-button" to="/reports">แจ้งปัญหา ⚠️</RouterLink>
         </li>
         
       </ul>
