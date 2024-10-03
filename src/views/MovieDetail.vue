@@ -159,6 +159,7 @@ body, h2, p {
 
 .movie-card img {
   border-radius: 15px;
+  max-width: auto;
 }
 
 .video-container {
@@ -177,7 +178,12 @@ body, h2, p {
   height: 100%;
 }
 
-@media (max-width: 767px) {
+
+@media (min-width: 768px) {
+  .movie-card {
+    max-width: 800px; 
+  }
+
   .card-content {
     font-size: 10px; 
   }
@@ -188,12 +194,6 @@ body, h2, p {
 
   .card-content p {
     font-size: 15px; 
-  }
-}
-
-@media (min-width: 768px) {
-  .movie-card {
-    max-width: 700px; 
   }
 }
 
