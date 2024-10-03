@@ -154,12 +154,18 @@ body, h2, p {
   width: 80%; 
   max-width: 400px; 
   z-index: 2;
-  margin: auto; 
+  margin: auto;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
 }
 
 .movie-card img {
   border-radius: 15px;
-  max-width: auto;
+  max-width: 100%;
+  max-height: 400px; /* Prevent the image from exceeding the card's height */
+  object-fit: cover; /* Ensure the image scales correctly */
 }
 
 .video-container {
@@ -177,7 +183,6 @@ body, h2, p {
   width: 100%;
   height: 100%;
 }
-
 
 @media (min-width: 768px) {
   .movie-card {
@@ -201,13 +206,16 @@ body, h2, p {
   .movie-card {
     max-width: 900px; 
   }
+
   .card-content h2 {
     font-size: 30px;
     margin-bottom: 10px;
   }
+
   .card-content p {
     font-size: 18px;
   }
 }
 </style>
+
 
