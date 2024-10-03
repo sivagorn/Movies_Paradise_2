@@ -157,15 +157,15 @@ body, h2, p {
   margin: auto;
   display: flex; 
   flex-direction: column; 
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
+  align-items: center; 
+  justify-content: center; 
 }
 
 .movie-card img {
   border-radius: 15px;
   max-width: 100%;
-  max-height: 400px; /* Prevent the image from exceeding the card's height */
-  object-fit: cover; /* Ensure the image scales correctly */
+  max-height: 400px; 
+  object-fit: cover; 
 }
 
 .video-container {
