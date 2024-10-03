@@ -71,7 +71,7 @@ onMounted(fetchReviews);
 .card {
   display: flex;
   flex-direction: column;
-  border: 5px solid #000000;
+  border: 5px solid #c2c2c2;
   border-radius: 5px; 
   box-sizing: border-box;
   background-color: #ffffff;

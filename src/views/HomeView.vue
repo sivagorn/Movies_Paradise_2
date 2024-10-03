@@ -86,7 +86,7 @@ onMounted(() => {
   padding: 10px;
   margin-bottom: 50px;
   font-size: 18px;
-  border: 2px solid #000;
+  border: 2px solid #c2c2c2;
   border-radius: 5px;
 }
 
@@ -99,7 +99,7 @@ onMounted(() => {
 .card {
   display: flex;
   flex-direction: column;
-  border: 5px solid #000000;
+  border: 5px solid #c2c2c2;
   box-sizing: border-box;
   background-color: #ffffff;
   transition: transform 0.3s ease, box-shadow 0.3s ease; 
